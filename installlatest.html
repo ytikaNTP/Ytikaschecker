@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переадресация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Информация о переадресации</h2>
+        <p>Если вы это видите, значит вас не переадресовало на сайт.</p>
+        <p>Нажмите на эту кнопку, чтобы перейти:</p>
+        <a href="https://soon" class="button" id="redirectButton">
+            Перейти на сайт
+        </a>
+        
+        <p style="margin-top: 30px; font-size: 14px; color: #666;">
+            Если переадресация не сработала автоматически, используйте кнопку выше.
+        </p>
+    </div>
+
+    <script>
+        const targetUrl = "https://soon";
+        document.getElementById('redirectButton').href = targetUrl;
+        setTimeout(function() {
+            window.location.href = targetUrl;
+        }, 3000);
+        let countdown = 3;
+        const countdownElement = document.createElement('p');
+        countdownElement.style.color = '#666';
+        countdownElement.style.marginTop = '10px';
+        document.querySelector('.container').appendChild(countdownElement);
+        const countdownInterval = setInterval(function() {
+            countdownElement.textContent = `Автоматическая переадресация через ${countdown} секунд...`;
+            countdown--;
+            if (countdown < 0) {
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
