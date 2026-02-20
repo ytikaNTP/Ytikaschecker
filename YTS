@@ -1,1 +1,9 @@
-
+{
+  "app_version": "2.2",
+  "release_date": "2025-12-10",
+  "download_url": "сылка на загрузку нового EXE",
+  "release_notes": [
+    "тест",
+    "тест2"
+  ]
+}
