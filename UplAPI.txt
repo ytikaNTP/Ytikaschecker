@@ -1,1 +1,1 @@
-https://rob-fly-reads-optics.trycloudflare.com
+https://admin.localhost.run
